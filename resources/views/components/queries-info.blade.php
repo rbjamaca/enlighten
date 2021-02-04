@@ -1,7 +1,7 @@
 @props(['example'])
 
 @php
-    $queryGroups = $example->queries->chunkWhile(function ($query, $key, $chunk) {
+    $queryGroups = $example->queries->chunk(0, function ($query, $key, $chunk) {
         return $query->request_id === $chunk->last()->request_id;
     });
 @endphp
